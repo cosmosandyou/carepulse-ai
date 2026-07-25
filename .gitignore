@@ -1,0 +1,13 @@
+﻿# Node / Next.js
+web/node_modules/
+web/.next/
+web/.env.local
+
+# Python / Streamlit
+__pycache__/
+*.py[cod]
+.venv/
+
+# Generated artifacts
+output/
+tmp/
