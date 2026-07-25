@@ -1,4 +1,9 @@
-# CarePulse AI
+﻿# CarePulse AI
+
+> **Live app:** [https://carepulse-ai-flame.vercel.app](https://carepulse-ai-flame.vercel.app)
+
+For a full explanation of the project, see [PROJECT_REPORT.md](./PROJECT_REPORT.md).
+
 
 A privacy-safe healthcare operations analytics portfolio project for Dublin clinic networks. It uses fully synthetic appointment data to demonstrate no-show prediction, demand pressure forecasting, waiting-time risk analysis, anomaly detection, and operational recommendations.
 
@@ -12,10 +17,6 @@ streamlit run app.py
 The app generates deterministic synthetic data at first run; no patient-identifiable or real healthcare data is used.
 
 ## Public web app (Vercel + Clerk)
-
-**Live application:** [carepulse-ai-flame.vercel.app](https://carepulse-ai-flame.vercel.app)
-
-Anyone with the link can open the landing page and create an account through Clerk. Authentication secrets are configured in Vercel and are never committed to this repository.
 
 The [`web`](./web) directory contains the Vercel-ready Next.js version of CarePulse AI. It includes a responsive executive dashboard, Clerk authentication, and public self-service signup.
 
@@ -39,3 +40,4 @@ For real analytics workloads, place the Python models behind a FastAPI service h
 ## Privacy statement
 
 **CarePulse AI is a privacy-safe synthetic analytics platform inspired by operational challenges faced by urban healthcare providers in Dublin.** It is a portfolio demonstration, not a clinical decision-support system.
+
