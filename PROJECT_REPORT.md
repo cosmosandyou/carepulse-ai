@@ -120,7 +120,7 @@ flowchart LR
 
 ### Important architecture note
 
-The deployed Next.js dashboard currently displays curated **fixed synthetic values**. It does not yet call the Python model or read a live database. The Streamlit prototype contains the real demonstration analytics logic. Connecting these two layers is the main future integration task.
+The deployed Next.js dashboard fetches its synthetic operational aggregates from the protected `/api/dashboard` route. The API owns the hosted demo data source, keeping the UI separate from its data layer. The Streamlit prototype still contains the Python model demonstration; connecting that model through a dedicated FastAPI service remains a future integration task.
 
 ## 5. Technology stack
 
@@ -153,7 +153,7 @@ The dashboard turns those patterns into human-review suggestions: target reminde
 ## 8. Limitations
 
 1. **Synthetic data only:** results say nothing about actual Dublin services or people.
-2. **No live data pipeline:** the hosted dashboard does not yet connect to a database or Python API.
+2. **Synthetic API only:** the hosted dashboard now uses an internal API route, but it does not yet connect to a database or the Python model service.
 3. **Simplified validation:** no external validation, calibration, fairness study, monitoring, or governance review exists.
 4. **Heuristic forecasting:** the demand estimate does not account for staffing, holidays, cancellations, seasonality, or real events.
 5. **No role-based permissions:** every authenticated user sees the same synthetic dashboard.
@@ -189,7 +189,7 @@ CLERK_SECRET_KEY=...
 ## 10. Recommended next steps
 
 1. Put the Python model behind a FastAPI service with authenticated, read-only analytics endpoints.
-2. Replace fixed Next.js dashboard values with API-driven aggregated synthetic data.
+2. Replace the current internal synthetic API response with API-driven aggregates from an approved data store.
 3. Add PostgreSQL for approved, de-identified operational aggregates.
 4. Add roles such as analyst, manager, and administrator.
 5. Add forecast back-testing, calibration, data-quality checks, and monitoring.
@@ -199,3 +199,4 @@ CLERK_SECRET_KEY=...
 ## 11. Summary
 
 CarePulse AI is a privacy-safe healthcare-operations portfolio project: a local synthetic-data and modelling prototype combined with a publicly accessible, Vercel-hosted, Clerk-authenticated web experience.
+
